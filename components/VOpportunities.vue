@@ -13,14 +13,28 @@
 //     },
 //   });
 // });
-import { register } from "swiper/element/bundle";
-register();
+// import { register } from "swiper/element/bundle";
+// register();
+import Swiper from "swiper";
+import { onMounted } from "vue";
+import { Pagination } from "swiper/modules";
+onMounted(() => {
+  const swiper = new Swiper(".swiper-container", {
+    modules: [Pagination],
+    loop: true,
+    slidesPerView: 1,
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+  });
+});
 </script>
 
 <template>
   <section class="opportunities">
     <h2>Возможности</h2>
-    <!-- <div class="swiper-container mobile">
+    <div class="swiper-container mobile">
       <div class="swiper-wrapper">
         <div class="swiper-slide">
           <div class="slider-card" id="card-1">
@@ -62,58 +76,7 @@ register();
         </div>
       </div>
       <div class="swiper-pagination"></div>
-    </div> -->
-
-    <swiper-container
-      slides-per-view="1"
-      loop="true"
-      :pagination="{
-        type: bullets,
-      }"
-      class="mobile"
-    >
-      <swiper-slide>
-        <div class="slider-card" id="card-1">
-          <img src="/sms.png" alt="" />
-          <h3>Общение с классом</h3>
-          <p>
-            Видеосвязь <br />
-            Чат с классом
-          </p>
-        </div>
-      </swiper-slide>
-
-      <swiper-slide>
-        <div class="slider-card" id="card-2">
-          <img src="/komp.png" alt="" />
-          <h3>Проведение занятий</h3>
-          <p>
-            Презентация файлов <br />
-            Демонстрация экрана
-          </p>
-        </div>
-      </swiper-slide>
-
-      <swiper-slide>
-        <div class="slider-card" id="card-1">
-          <img src="/point.png" alt="" />
-          <h3>Посещаемость</h3>
-          <p>
-            Автоматическое <br />
-            отслеживание <br />
-            присутствующих
-          </p>
-        </div>
-      </swiper-slide>
-
-      <swiper-slide>
-        <div class="slider-card" id="card-2">
-          <img src="/time.png" alt="" />
-          <h3>История занятий</h3>
-          <p>Материалы урока</p>
-        </div>
-      </swiper-slide>
-    </swiper-container>
+    </div>
 
     <div class="container desktop">
       <div class="row">
